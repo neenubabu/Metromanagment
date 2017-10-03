@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div>
+		<div>
+			<h1>Oyster Travel Tracker</h1>
+			<h2>Hello user</h2>
+			<form action="#" th:action="@{/identifyCustomer}" th:object="${data}" method="post">
+			    <p> Please enter card number to proceed : <input type="text" th:field="*{customerDto.id}" /></p>
+			    
+			    <b  style="color:red" th:text="${data.errorMessage}" />
+			    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+			   	</form>
+			
+
+			
+		</div>
+	</div>
+</body>
+</html>

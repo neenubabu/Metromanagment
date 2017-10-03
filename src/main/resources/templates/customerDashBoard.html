@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+</head>
+<body>
+	<div>
+		<div>
+			<h1>Oyster Travel Tracker</h1>
+			<form action="#" th:action="@{/userAction}" th:object="${data}" method="post">
+						
+			
+				 Hello <b  th:text="${data.customerDto.firstName}"/> <b th:text="${data.customerDto.lastName}"/>, your current balance is $ <b th:text="${data.customerDto.value}"/>
+				 <input type="hidden" th:field="*{customerDto.firstName}" />
+				 <input type="hidden" th:field="*{customerDto.lastName}" />
+				 <input type="hidden" th:field="*{customerDto.value}" />
+    			<p  style="color:red" th:text="${data.errorMessage}" />
+			    <p  style="color:green" th:text="${data.successMessage}" />
+			    
+			    <p>Card number<input type="text" readonly="readonly" th:field="*{customerDto.id}"/></p>
+			    
+    			<details>
+				<summary>Topup</summary>
+
+
+		
+			   			<p> Please enter amount to proceed : <input type="text" th:field="*{customerDto.topUp}" /></p>
+			    		<p><input type="submit" name="topupCard" value="Pay"/> </p>
+			    		
+			    	</details>
+			
+			
+    			<details>
+    			
+					<summary>Check In</summary>
+					<select  th:field="*{journeyDto.origin}">
+  						<option value="HB">Holborn tube station</option>
+  						<option value="EC">Earl’s Court tube station</option>
+  						<option value="WB">Wimbledon tube station</option>
+  						<option value="HS">Hammersmith tube station</option>
+  						<option value="BS">Any bus station</option>
+					</select>
+			    		<p><input type="submit" name="checkIn" value="Check In"/> </p>
+			    </details>
+			
+			 
+			 
+    			<details>
+					<summary>Check Out</summary>
+					<select  th:field="*{journeyDto.destination}">
+  						<option value="HB">Holborn tube station</option>
+  						<option value="EC">Earl’s Court tube station</option>
+  						<option value="WB">Wimbledon tube station</option>
+  						<option value="HS">Hammersmith tube station</option>
+  						<option value="BS">Any bus station</option>
+					</select>
+			    		<p><input type="submit" name="checkOut" value="Check Out"/> </p>
+			    </details>
+			
+
+			 
+
+			 </form>
+		</div>
+	</div>
+</body>
+</html>
